@@ -1,8 +1,12 @@
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 import time
+from time import sleep
 import requests
 import datetime
+import os
+from colorama import Fore, Back, Style
+from datetime import datetime
 
 myUrl = 'https://unite180.com/church_bookings/booking.php'
 
@@ -27,53 +31,65 @@ def check_services():
 
     HQ1 = page_soup.find('option', {'value': 'hq_1'}).get_text()
     if HQ1 == HQ1_Full:
-        print("Sorry the service is still full: HQ Service 1")
+        print(Fore.RED + "Sorry the service is still full: HQ Service 1")
+        print(Style.RESET_ALL)
     else:
-        print(HQ1)
+        print(Fore.GREEN +HQ1)
+        print(Style.RESET_ALL)
         telegram_bot_sendtext(HQ1)
         print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
        # send_mail('HQ First service')
 
     HQ2 = page_soup.find('option', {'value': 'hq_2'}).get_text()
     if HQ2 == HQ2_Full:
-        print("Sorry the service is still full: HQ Service 2")
+        print(Fore.RED + "Sorry the service is still full: HQ Service 2")
+        print(Style.RESET_ALL)
     else:
-        print(HQ2)
+        print(Fore.GREEN +HQ2)
+        print(Style.RESET_ALL)
         telegram_bot_sendtext(HQ2)
         print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
 
 
     Brook1 = page_soup.find('option', {'value': 'bn_1'}).get_text()
     if Brook1 == Brook1_Full:
-        print("Sorry the service is still full: Brooklyn Morning service")
+        print(Fore.RED + "Sorry the service is still full: Brooklyn Morning service")
+        print(Style.RESET_ALL)
     else:
-        print(Brook1)
+        print(Fore.GREEN +Brook1)
+        print(Style.RESET_ALL)
         telegram_bot_sendtext(Brook1)
         print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
 
     Brook2 = page_soup.find('option', {'value': 'bn_2'}).get_text()
     if Brook2 == Brook2_Full:
-        print("Sorry the service is still full: Brooklyn Evening service")
+        print(Fore.RED + "Sorry the service is still full: Brooklyn Evening service")
+        print(Style.RESET_ALL)
     else:
-        print(Brook2)
+        print(Fore.GREEN +Brook2)
+        print(Style.RESET_ALL)
         telegram_bot_sendtext(Brook2)
         print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
 
 
     Potch1 = page_soup.find('option', {'value': 'ph_1'}).get_text()
     if Potch1 == Potch1_Full:
-        print("Sorry the service is still full: Potch first service service")
+        print(Fore.RED + "Sorry the service is still full: Potch first service service")
+        print(Style.RESET_ALL)
     else:
-        print(Potch1)
+        print(Fore.GREEN +Potch1)
+        print(Style.RESET_ALL)
         telegram_bot_sendtext(Potch1)
         print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
 
 
     Potch2 = page_soup.find('option', {'value': 'ph_2'}).get_text()
     if Potch2 == Potch2_Full:
-        print("Sorry the service is still full: Potch Second service service")
+        print(Fore.RED + "Sorry the service is still full: Potch Second service service")
+        print(Style.RESET_ALL)
     else:
-        print(Potch2)
+        print(Fore.GREEN +Potch2)
+        print(Style.RESET_ALL)
         telegram_bot_sendtext(Potch2)
         print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
 
@@ -97,9 +113,14 @@ def telegram_bot_sendtext(bot_message) -> object:
 #ijbnrcrfvbieuaew
 i = 0
 while True:
+    os.system("cls")
     i = i+1
-    print(datetime.datetime.now())
+    time = datetime.now()
+    time = time.time()
+    now = (str(time.hour) + ':' + str(time.minute) + ':' + str(time.second))
+    print(Fore.RED + now)
+    print(Style.RESET_ALL)
     check_services()
     print(i)
-    time.sleep(10)
+    sleep(10)
     print("\n")
