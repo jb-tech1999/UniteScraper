@@ -16,12 +16,14 @@ def check_services():
     #HTML parser
     page_soup = soup(page_html, 'html.parser')
 
-    HQ1_Full = 'Morning First Service  (07:55) (155/155)'
-    HQ2_Full = 'Evening Service (16:55) (155/155)'
-    HQ3_Full = 'Morning Second Service (09:55) (155/155)'
+    HQ1_Full = 'Morning First Service  (08:55) (55/55)'
+    HQ2_Full = 'Evening Service (16:55) (55/55)'
 
-    Brook1_Full = 'Morning Service (09:00) (205/205)'
-    Brook2_Full = 'Evening Service (17:00) (205/205)'
+    Brook1_Full = 'Morning Service (09:00) (65/65)'
+    Brook2_Full = 'Evening Service (17:00) (65/65)'
+
+    Potch1_Full = 'First Service (16:00) (70/70)'
+    Potch2_Full = 'Evening Service (18:00) (70/70)'
 
     HQ1 = page_soup.find('option', {'value': 'hq_1'}).get_text()
     if HQ1 == HQ1_Full:
@@ -40,13 +42,6 @@ def check_services():
         telegram_bot_sendtext(HQ2)
         print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
 
-    HQ3 = page_soup.find('option', {'value': 'hq_3'}).get_text()
-    if HQ3 == HQ3_Full:
-        print("Sorry the service is still full: HQ Service 3")
-    else:
-        print(HQ3)
-        telegram_bot_sendtext(HQ3)
-        print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
 
     Brook1 = page_soup.find('option', {'value': 'bn_1'}).get_text()
     if Brook1 == Brook1_Full:
@@ -62,6 +57,24 @@ def check_services():
     else:
         print(Brook2)
         telegram_bot_sendtext(Brook2)
+        print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
+
+
+    Potch1 = page_soup.find('option', {'value': 'ph_1'}).get_text()
+    if Potch1 == Potch1_Full:
+        print("Sorry the service is still full: Potch first service service")
+    else:
+        print(Potch1)
+        telegram_bot_sendtext(Potch1)
+        print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
+
+
+    Potch2 = page_soup.find('option', {'value': 'ph_2'}).get_text()
+    if Potch2 == Potch2_Full:
+        print("Sorry the service is still full: Potch Second service service")
+    else:
+        print(Potch2)
+        telegram_bot_sendtext(Potch2)
         print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
 
 
