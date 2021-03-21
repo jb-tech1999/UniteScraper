@@ -37,7 +37,7 @@ def check_services():
         print(Fore.GREEN +HQ1)
         print(Style.RESET_ALL)
         telegram_bot_sendtext(HQ1)
-        print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
+       # print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
        # send_mail('HQ First service')
 
     HQ2 = page_soup.find('option', {'value': 'hq_2'}).get_text()
@@ -48,7 +48,7 @@ def check_services():
         print(Fore.GREEN +HQ2)
         print(Style.RESET_ALL)
         telegram_bot_sendtext(HQ2)
-        print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
+      #  print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
 
 
     Brook1 = page_soup.find('option', {'value': 'bn_1'}).get_text()
@@ -59,7 +59,7 @@ def check_services():
         print(Fore.GREEN +Brook1)
         print(Style.RESET_ALL)
         telegram_bot_sendtext(Brook1)
-        print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
+       # print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
 
     Brook2 = page_soup.find('option', {'value': 'bn_2'}).get_text()
     if Brook2 == Brook2_Full:
@@ -69,7 +69,7 @@ def check_services():
         print(Fore.GREEN +Brook2)
         print(Style.RESET_ALL)
         telegram_bot_sendtext(Brook2)
-        print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
+       # print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
 
 
     Potch1 = page_soup.find('option', {'value': 'ph_1'}).get_text()
@@ -80,7 +80,7 @@ def check_services():
         print(Fore.GREEN +Potch1)
         print(Style.RESET_ALL)
         telegram_bot_sendtext(Potch1)
-        print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
+      #  print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
 
 
     Potch2 = page_soup.find('option', {'value': 'ph_2'}).get_text()
@@ -91,7 +91,7 @@ def check_services():
         print(Fore.GREEN +Potch2)
         print(Style.RESET_ALL)
         telegram_bot_sendtext(Potch2)
-        print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
+      #  print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
 
 
 def telegram_bot_sendtext(bot_message) -> object:
@@ -100,11 +100,11 @@ def telegram_bot_sendtext(bot_message) -> object:
    # bot_chat = ['1132226909', '1331881872']
     #bot_chatID = []
     #bot_chatID = ('1132226909','1331881872')
-    print(len(contact_ID))
+   # print(len(contact_ID))
     for i in range(len(contact_ID)):
         send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + contact_ID[i] + '&parse_mode=Markdown&text=' + bot_message
         response = requests.get(send_text)
-        print(response.json())
+      #  print(response.json())
 
        # return response.json()
 
@@ -124,6 +124,7 @@ while True:
     check_services()
     print(Fore.GREEN +"===============================================================")
     print(Style.RESET_ALL)
-    print(i)
+    print(Fore.BLUE + str(i))
+    print(Style.RESET_ALL)
     sleep(10)
     print("\n")
