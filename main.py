@@ -20,11 +20,11 @@ def check_services():
     #HTML parser
     page_soup = soup(page_html, 'html.parser')
 
-    HQ1_Full = 'Morning First Service  (08:55) (55/55)'
-    HQ2_Full = 'Evening Service (16:55) (55/55)'
+    HQ1_Full = 'Morning Service  (08:55) (140/140)'
+    HQ2_Full = 'Evening Service (16:55) (140/140)'
 
-    Brook1_Full = 'Morning Service (09:00) (65/65)'
-    Brook2_Full = 'Evening Service (17:00) (65/65)'
+    Brook1_Full = 'Morning Service (09:00) (180/180)'
+    Brook2_Full = 'Evening Service (17:00) (180/180)'
 
     Potch1_Full = 'First Service (16:00) (70/70)'
     Potch2_Full = 'Evening Service (18:00) (70/70)'
