@@ -20,7 +20,7 @@ def check_services():
     #HTML parser
     page_soup = soup(page_html, 'html.parser')
 
-    HQ1_Full = 'Morning Service  (08:55) (140/140)'
+    HQ1_Full = 'Morning Service (08:55) (140/140)'
     HQ2_Full = 'Evening Service (16:55) (140/140)'
 
     Brook1_Full = 'Morning Service (09:00) (180/180)'
@@ -74,7 +74,7 @@ def check_services():
         telegram_bot_sendtext(Brook2)
         print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
 
-
+'''
     Potch1 = page_soup.find('option', {'value': 'ph_1'}).get_text()
     if Potch1 == Potch1_Full:
 
@@ -97,7 +97,7 @@ def check_services():
         print(Style.RESET_ALL)
         telegram_bot_sendtext(Potch2)
         print(telegram_bot_sendtext('https://www.unite180.com/church\\_bookings/booking.php'))
-
+'''
 
 def telegram_bot_sendtext(bot_message) -> object:
     bot_token = '1470823420:AAHTdHwIgxtozQcDOYQFV0eRb31JZ5ThA-o'
@@ -118,7 +118,7 @@ def telegram_bot_sendtext(bot_message) -> object:
 #ijbnrcrfvbieuaew
 i = 0
 while True:
-    os.system("cls")
+    os.system("clear")
     i = i+1
     time = datetime.now()
     time = time.time()
